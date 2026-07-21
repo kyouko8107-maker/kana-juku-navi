@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>本日の材料株ウォッチ｜米国株｜2026.07.20</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141F33;
+    --ink-soft:#465066;
+    --paper:#E7EBF1;
+    --surface:#FFFFFF;
+    --rule:#C7D1DE;
+    --decline:#2A5CAA;
+    --advance:#B23B3B;
+    --gold:#9C7A2E;
+    --gold-soft:#EFE6D2;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+    padding:56px 20px 80px;
+  }
+  .page{ max-width:820px; margin:0 auto; }
+
+  .eyebrow{
+    display:flex; align-items:center; gap:10px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; letter-spacing:.12em;
+    color:var(--gold); font-weight:700;
+    margin-bottom:22px;
+  }
+  .eyebrow .dot{ width:7px; height:7px; border-radius:50%; background:var(--gold); display:inline-block; }
+  .eyebrow .sep{ color:var(--rule); }
+
+  h1{
+    font-family:'Shippori Mincho', serif;
+    font-weight:700;
+    font-size:clamp(26px, 4vw, 36px);
+    line-height:1.5;
+    margin-bottom:14px;
+  }
+  .dek{
+    font-size:15px;
+    color:var(--ink-soft);
+    border-left:3px solid var(--gold);
+    padding-left:14px;
+    margin-bottom:20px;
+    max-width:640px;
+  }
+
+  .notice{
+    background:var(--ink);
+    color:#D9DEE8;
+    font-size:12.5px;
+    line-height:1.8;
+    padding:14px 18px;
+    margin-bottom:20px;
+  }
+  .notice strong{ color:#F4F5F7; }
+
+  .timing{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    color:var(--ink-soft);
+    background:var(--surface);
+    border:1px solid var(--rule);
+    padding:10px 16px;
+    margin-bottom:44px;
+  }
+
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:2px;
+    margin-bottom:48px;
+  }
+  .card{
+    background:var(--surface);
+    border:1px solid var(--rule);
+    padding:24px 26px;
+  }
+  .card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    padding-bottom:16px;
+    margin-bottom:16px;
+    border-bottom:1px dashed var(--rule);
+  }
+  .card-name{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .card-name .code{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+  .card-name h2{
+    font-family:'Shippori Mincho', serif;
+    font-size:20px;
+    font-weight:700;
+  }
+  .tag{
+    display:inline-block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:.05em;
+    font-weight:700;
+    padding:3px 8px;
+    margin-top:6px;
+  }
+  .tag.plus{ background:#F6E7E7; color:var(--advance); }
+  .tag.minus{ background:#E4EBF6; color:var(--decline); }
+
+  .card-move{ text-align:right; white-space:nowrap; }
+  .card-move .value{
+    font-family:'JetBrains Mono', monospace;
+    font-size:20px;
+    font-weight:700;
+    font-variant-numeric:tabular-nums;
+  }
+  .card-move .value.up{ color:var(--advance); }
+  .card-move .value.down{ color:var(--decline); }
+
+  .card-body p{
+    font-size:14.5px;
+    color:#2B3548;
+    margin-bottom:10px;
+  }
+  .card-body p:last-child{ margin-bottom:0; }
+  .card-body .label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:.08em;
+    color:var(--gold);
+    font-weight:700;
+    display:block;
+    margin-bottom:4px;
+  }
+  .card-body .watch-line{
+    background:var(--gold-soft);
+    padding:10px 14px;
+    font-size:13.5px;
+    color:var(--ink);
+    border-left:3px solid var(--gold);
+    margin-top:12px;
+  }
+
+  section.edu{
+    background:var(--surface);
+    border:1px solid var(--rule);
+    padding:24px 26px;
+    margin-bottom:40px;
+  }
+  section.edu h3{
+    font-family:'Shippori Mincho', serif;
+    font-size:17px;
+    margin-bottom:12px;
+  }
+  section.edu p{ font-size:14px; color:#2B3548; margin-bottom:8px; }
+  section.edu p:last-child{ margin-bottom:0; }
+
+  footer{
+    margin-top:8px;
+    padding-top:22px;
+    border-top:1px solid var(--rule);
+  }
+  footer p{ font-size:12px; color:#7A8397; line-height:1.9; }
+
+  @media (max-width:720px){
+    .cards{ grid-template-columns:1fr; }
+  }
+
+  @media (max-width:520px){
+    body{ padding:36px 16px 60px; }
+    .card-top{ flex-direction:column; }
+    .card-move{ text-align:left; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="eyebrow">
+    <span class="dot"></span>WATCHLIST<span class="sep">/</span>US STOCKS<span class="sep">/</span>2026.07.20 引け
+  </div>
+
+  <div style="margin-bottom:24px;"><a href="index.html" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft); text-decoration:none;">← ホームに戻る</a></div>
+
+  <h1>本日の材料株ウォッチ｜米国株</h1>
+  <p class="dek">前営業日（7月20日）の米国市場で値上がり率・出来高が目立った銘柄を、客観的な事実だけでまとめました。</p>
+
+  <div class="notice">
+    <strong>このコーナーについて：</strong>特定銘柄の「買い時」「売り時」を示すものではありません。公表されている株価・ニュースをもとに、何が起きたかを整理したものです。売買の最終判断はご自身の分析と責任で行ってください。
+  </div>
+
+  <div class="timing">
+    ⏱ 掲載データは日本時間の朝にお届けする都合上、すべて<strong>前営業日（米国時間7月20日）の終値ベース</strong>です。「本日」の値動きではない点にご留意ください。
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-name">
+          <h2>Galaxy Digital</h2>
+          <span class="code">GLXY</span>
+          <span class="tag plus" style="display:block; margin-top:8px;">POSITIVE</span>
+        </div>
+        <div class="card-move">
+          <div class="value up">▲ +10%</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p><span class="label">材料</span>デジタル資産関連の金融サービスを手がける同社株が、暗号資産関連銘柄グループの中で上昇率トップとなった。</p>
+        <p><span class="label">値動き</span>前営業日比10%高。ビットコイン・イーサリアム価格自体は同日小幅な値動きにとどまっており、個別銘柄への物色が先行した形。</p>
+        <div class="watch-line">📊 チャートの見方：原資産（暗号資産価格）の値動き以上に関連株が動く場合、セクター全体への資金流入（テーマ物色）が起きているサインとして見られます。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-name">
+          <h2>Circle Internet Group</h2>
+          <span class="code">CRCL</span>
+          <span class="tag plus" style="display:block; margin-top:8px;">POSITIVE</span>
+        </div>
+        <div class="card-move">
+          <div class="value up">▲ +9%</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p><span class="label">材料</span>ステーブルコイン（USDC）発行大手の同社株が、Galaxy Digitalに次ぐ上昇率で続伸。</p>
+        <p><span class="label">値動き</span>前営業日比9%高。</p>
+        <div class="watch-line">📊 チャートの見方：同じテーマ（暗号資産関連）の複数銘柄が同時に上昇している場合、個別材料というよりセクター単位の資金シフトとして報じられることが多いです。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-name">
+          <h2>IREN</h2>
+          <span class="code">IREN</span>
+          <span class="tag plus" style="display:block; margin-top:8px;">POSITIVE</span>
+        </div>
+        <div class="card-move">
+          <div class="value up">▲ +17%</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p><span class="label">材料</span>データセンター運営会社の同社が、年末時点のAIクラウド事業の年換算収益目標を上方修正したと発表。</p>
+        <p><span class="label">値動き</span>発表を受け、株価は前営業日比17%超上昇。</p>
+        <div class="watch-line">📊 チャートの見方：AI関連の設備投資・売上ガイダンス引き上げは、AIインフラ関連銘柄全般のセンチメントに波及することがあるため、同業他社の動きも合わせて見られやすい材料です。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-name">
+          <h2>SharpLink Gaming</h2>
+          <span class="code">SBET</span>
+          <span class="tag plus" style="display:block; margin-top:8px;">POSITIVE</span>
+        </div>
+        <div class="card-move">
+          <div class="value up">▲ +8%</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p><span class="label">材料</span>イーサリアム関連の財務戦略（ETH保有）で知られる同社株が、Bitmine（+6%）とともに上昇。</p>
+        <p><span class="label">値動き</span>前営業日比8%高。</p>
+        <div class="watch-line">📊 チャートの見方：暗号資産を財務戦略として保有する企業（トレジャリー銘柄）は、原資産価格だけでなく市場の期待先行で値動きが大きくなりやすい傾向があります。</div>
+      </div>
+    </div>
+
+  </div>
+
+  <section class="edu">
+    <h3>今日の用語メモ：トレジャリー銘柄</h3>
+    <p><strong>トレジャリー銘柄</strong>とは、企業が財務戦略として暗号資産（ビットコインやイーサリアムなど）を自己資金で保有している上場企業の株式のこと。原資産の価格変動に加えて、保有量の増減や市場の期待によっても株価が動きやすいという特徴があります。</p>
+  </section>
+
+  <footer>
+    <p>本記事の情報は投資勧誘ではありません。教育・参考目的のみで提供しています。個別銘柄の売買を推奨するものではなく、投資判断はご自身の責任で行ってください。掲載データは前営業日（米国時間）の終値ベースです。</p>
+  </footer>
+
+</div>
+</body>
+</html>
