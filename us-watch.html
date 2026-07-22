@@ -34,12 +34,14 @@
   .card-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px; padding-bottom:16px; margin-bottom:16px; border-bottom:1px dashed var(--rule); }
   .card-name{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
   .card-name .code{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--ink-soft); }
-  .card-name h2{ font-family:'Shippori Mincho', serif; font-size:20px; font-weight:700; }
+  .card-name h2{ font-family:'Shippori Mincho', serif; font-size:19px; font-weight:700; }
   .tag{ display:inline-block; font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:.05em; font-weight:700; padding:3px 8px; margin-top:6px; }
   .tag.plus{ background:#F6E7E7; color:var(--advance); }
+  .tag.minus{ background:#E4EBF6; color:var(--decline); }
   .card-move{ text-align:right; white-space:nowrap; }
   .card-move .value{ font-family:'JetBrains Mono', monospace; font-size:20px; font-weight:700; font-variant-numeric:tabular-nums; }
   .card-move .value.up{ color:var(--advance); }
+  .card-move .value.down{ color:var(--decline); }
   .card-body p{ font-size:14.5px; color:#2B3548; margin-bottom:10px; }
   .card-body p:last-child{ margin-bottom:0; }
   .card-body .label{ font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:.08em; color:var(--gold); font-weight:700; display:block; margin-bottom:4px; }
@@ -61,37 +63,37 @@
 <div class="page">
 
   <div class="eyebrow">
-    <span class="dot"></span>WATCHLIST<span class="sep">/</span>US STOCKS<span class="sep">/</span>2026.07.22
+    <span class="dot"></span>WATCHLIST<span class="sep">/</span>US STOCKS<span class="sep">/</span>2026.07.22 引け
   </div>
 
   <div style="margin-bottom:24px;"><a href="index.html" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft); text-decoration:none;">← ホームに戻る</a></div>
 
   <h1>本日の材料株ウォッチ｜米国株</h1>
-  <p class="dek">前営業日（7月21日・米国時間）の市場で値上がり率・出来高が目立った銘柄を、客観的な事実だけでまとめました。</p>
+  <p class="dek">前営業日（7月22日・米国時間）の市場で値動きが目立った銘柄を、客観的な事実だけでまとめました。</p>
 
   <div class="notice">
     <strong>このコーナーについて：</strong>特定銘柄の「買い時」「売り時」を示すものではありません。公表されている株価・ニュースをもとに、何が起きたかを整理したものです。売買の最終判断はご自身の分析と責任で行ってください。
   </div>
 
   <div class="timing">
-    ⏱ 掲載データは日本時間の朝にお届けする都合上、すべて<strong>前営業日（米国時間7月21日）の終値ベース</strong>です。「本日」の値動きではない点にご留意ください。
+    ⏱ 掲載データは日本時間の朝にお届けする都合上、すべて<strong>前営業日（米国時間7月22日）の終値ベース</strong>です。「本日」の値動きではない点にご留意ください。
   </div>
 
   <div class="ticker">
     <div class="ticker-item">
+      <div class="ticker-name">NYダウ</div>
+      <div class="ticker-value">52,224.64</div>
+      <div class="ticker-delta up">▲ +385.38（+0.7%）</div>
+    </div>
+    <div class="ticker-item">
       <div class="ticker-name">S&P500</div>
-      <div class="ticker-value">終値</div>
-      <div class="ticker-delta up">▲ +0.89%</div>
+      <div class="ticker-value">7,509.20</div>
+      <div class="ticker-delta up">▲ +65.92（+0.9%）</div>
     </div>
     <div class="ticker-item">
       <div class="ticker-name">ナスダック総合</div>
-      <div class="ticker-value">終値</div>
-      <div class="ticker-delta up">▲ +1.29%</div>
-    </div>
-    <div class="ticker-item">
-      <div class="ticker-name">NYダウ</div>
-      <div class="ticker-value">終値</div>
-      <div class="ticker-delta up">▲ +0.74%</div>
+      <div class="ticker-value">25,837.21</div>
+      <div class="ticker-delta up">▲ +329.13（+1.3%）</div>
     </div>
   </div>
 
@@ -100,36 +102,90 @@
     <div class="card">
       <div class="card-top">
         <div class="card-name">
-          <h2>Micron Technology</h2>
-          <span class="code">MU</span>
+          <h2>Super Micro Computer</h2>
+          <span class="code">SMCI</span>
           <span class="tag plus" style="display:block; margin-top:8px;">POSITIVE</span>
         </div>
         <div class="card-move">
-          <div class="value up">▲ +12.6%</div>
+          <div class="value up">▲ +22.3%</div>
         </div>
       </div>
       <div class="card-body">
-        <p><span class="label">材料</span>台湾・韓国からの輸出データが好調だったことを受け、半導体株全般が先週の下落局面から反発。フィラデルフィア半導体株指数（SOX）は5.5%超上昇した。</p>
-        <p><span class="label">値動き</span>前営業日比12.6%高。</p>
-        <div class="watch-line">📊 チャートの見方：セクター全体が同時に反発する場面は、個別材料というより業界全体の需給・センチメント変化として見られることが多いです。</div>
+        <p><span class="label">材料</span>第4四半期の速報値を発表。売上高はガイダンスの下限に近い水準にとどまったが、粗利益率の見通しを従来の8.2〜8.4%から15〜17%へ大幅に引き上げ。四半期の新規受注は600億ドルを超え、過去最高の受注残高となった。</p>
+        <p><span class="label">値動き</span>この日の上昇率トップ。同業のDell TechnologiesやHewlett Packard Enterpriseにも買いが波及した。</p>
+        <div class="watch-line">📊 チャートの見方：粗利益率見通しの大幅な引き上げは、売上高の未達を上回るインパクトを与えることがあります。</div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-top">
         <div class="card-name">
-          <h2>Sandisk</h2>
-          <span class="code">SNDK</span>
+          <h2>EQT Corporation</h2>
+          <span class="code">EQT</span>
           <span class="tag plus" style="display:block; margin-top:8px;">POSITIVE</span>
         </div>
         <div class="card-move">
-          <div class="value up">▲ +14.3%</div>
+          <div class="value up">▲ +6.6%</div>
         </div>
       </div>
       <div class="card-body">
-        <p><span class="label">材料</span>Micronと同様、メモリー半導体セクターの反発局面で買いが先行。同セクターは今月上旬に急落していた反動もある。</p>
-        <p><span class="label">値動き</span>前営業日比14.3%高。同日の上昇率上位に入った。</p>
-        <div class="watch-line">📊 チャートの見方：直近で大きく売られたセクターが反発する場面では、値動きが特に大きくなりやすい傾向があります。</div>
+        <p><span class="label">材料</span>天然ガス生産大手が第2四半期の生産量が市場予想を上回ったと発表。2026年通期の販売量見通しを2,275〜2,375Bcfeから2,375〜2,450Bcfeへ引き上げた。</p>
+        <p><span class="label">値動き</span>前営業日比6.6%高。</p>
+        <div class="watch-line">📊 チャートの見方：エネルギー株はこの日、原油価格の上昇（中東情勢の緊迫化を背景にブレント原油が6週間ぶり高値）を受けてセクター全体が買われた地合いの中での動きでした。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-name">
+          <h2>Pegasystems</h2>
+          <span class="code">PEGA</span>
+          <span class="tag minus" style="display:block; margin-top:8px;">CAUTION</span>
+        </div>
+        <div class="card-move">
+          <div class="value down">▼ &minus;14%超</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p><span class="label">材料</span>調整後EPSが35セントとなり、市場予想の43セントを下回った。会社側は「AI市場の急速かつ前例のない変化」により、一部の顧客が購入判断を先送りしていると説明した。</p>
+        <p><span class="label">値動き</span>決算発表を受け、前営業日比14%超の下落。</p>
+        <div class="watch-line">📊 チャートの見方：AI関連の技術変化のスピードが、顧客企業の投資判断そのものを遅らせる要因として言及される事例です。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-name">
+          <h2>Amazon.com</h2>
+          <span class="code">AMZN</span>
+          <span class="tag minus" style="display:block; margin-top:8px;">CAUTION</span>
+        </div>
+        <div class="card-move">
+          <div class="value down">▼ &minus;1%</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p><span class="label">材料</span>AI部門で人員削減を実施したことが判明。今年1月に発表した全社的な人員削減（約1万6,000人規模）の一環とみられる。</p>
+        <p><span class="label">値動き</span>前営業日比1%安。</p>
+        <div class="watch-line">📊 チャートの見方：AI関連投資を積極化する企業でも、部門ごとの人員最適化が同時に進む場合があり、投資家はコスト構造の変化として注視することがあります。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-name">
+          <h2>Western Digital</h2>
+          <span class="code">WDC</span>
+          <span class="tag plus" style="display:block; margin-top:8px;">POSITIVE</span>
+        </div>
+        <div class="card-move">
+          <div class="value up">▲ +12.5%</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p><span class="label">材料</span>半導体・ストレージ関連株全般の上昇局面で買いが先行。好調な四半期決算やAI需要への期待が続くセクターとして市場で注目されている。</p>
+        <p><span class="label">値動き</span>前営業日比12.5%高。</p>
+        <div class="watch-line">📊 チャートの見方：メモリー・ストレージ関連株は、AIデータセンター向け需要の拡大観測をきっかけに、セクター全体で連動して動く場面が増えています。</div>
       </div>
     </div>
 
@@ -145,35 +201,17 @@
         </div>
       </div>
       <div class="card-body">
-        <p><span class="label">材料</span>人員削減計画を発表。コスト構造の見直しによる収益性改善が好感された。</p>
+        <p><span class="label">材料</span>Western Digitalと同様、半導体セクター全般の上昇局面で買いが入った。</p>
         <p><span class="label">値動き</span>前営業日比8.6%高。</p>
-        <div class="watch-line">📊 チャートの見方：業績不振が続く企業のコスト削減策は、短期的には収益性改善への期待から株価の材料になることがあります。</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <div class="card-name">
-          <h2>3M</h2>
-          <span class="code">MMM</span>
-          <span class="tag plus" style="display:block; margin-top:8px;">POSITIVE</span>
-        </div>
-        <div class="card-move">
-          <div class="value up">▲ +7.6%</div>
-        </div>
-      </div>
-      <div class="card-body">
-        <p><span class="label">材料</span>第2四半期決算で調整後EPSが2.40ドルと市場予想（2.25ドル）を上回り、売上高も予想を上回る65.0億ドル。通期の調整後EPS見通しを8.50〜8.70ドルから8.80〜8.95ドルへ上方修正した。</p>
-        <p><span class="label">値動き</span>この日のダウ平均構成銘柄の中で上昇率トップ。前営業日比7.6%高。</p>
-        <div class="watch-line">📊 チャートの見方：決算内容だけでなく、通期見通しの上方修正が伴うと、市場の反応がより大きくなる傾向があります。</div>
+        <div class="watch-line">📊 チャートの見方：セクター全体が同時に上昇する場面は、個別材料よりも業界全体の需給・センチメント変化として見られることが多いです。</div>
       </div>
     </div>
 
   </div>
 
   <section class="edu">
-    <h3>今日の用語メモ：ガイダンス（業績見通し）の上方修正</h3>
-    <p><strong>ガイダンス</strong>とは、企業が発表する将来の業績見通しのこと。決算そのものが市場予想を上回る「サプライズ」に加えて、今後の見通し（ガイダンス）を上方修正すると、投資家の期待がさらに高まりやすく、株価への反応が大きくなる傾向があります。</p>
+    <h3>今日の用語メモ：プレリミナリー（速報）決算</h3>
+    <p><strong>プレリミナリー決算（preliminary results）</strong>とは、正式な決算発表に先立ち、企業が主要な業績数値を先行して開示すること。Super Micro Computerのように、正式発表（この場合8月11日予定）を待たずに粗利益率や受注状況を先出しするケースがあり、株価に大きな影響を与えることがあります。</p>
   </section>
 
   <footer>
