@@ -28,7 +28,7 @@
   .ticker-name{ font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.08em; color:#93A0BD; margin-bottom:8px; }
   .ticker-value{ font-family:'JetBrains Mono', monospace; font-size:19px; font-weight:700; color:#F4F5F7; margin-bottom:6px; font-variant-numeric:tabular-nums; }
   .ticker-delta{ font-family:'JetBrains Mono', monospace; font-size:12px; font-weight:500; font-variant-numeric:tabular-nums; }
-  .ticker-delta.up{ color:#E08585; }
+  .ticker-delta.down{ color:#7FA6E0; }
   .cards{ display:grid; grid-template-columns:repeat(2, 1fr); gap:2px; margin-bottom:48px; }
   .card{ background:var(--surface); border:1px solid var(--rule); padding:24px 26px; }
   .card-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px; padding-bottom:16px; margin-bottom:16px; border-bottom:1px dashed var(--rule); }
@@ -63,32 +63,32 @@
 <div class="page">
 
   <div class="eyebrow">
-    <span class="dot"></span>WATCHLIST<span class="sep">/</span>JAPAN STOCKS<span class="sep">/</span>2026.07.22
+    <span class="dot"></span>WATCHLIST<span class="sep">/</span>JAPAN STOCKS<span class="sep">/</span>2026.07.22 大引け
   </div>
 
   <div style="margin-bottom:24px;"><a href="index.html" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft); text-decoration:none;">← ホームに戻る</a></div>
 
   <h1>本日の材料株ウォッチ｜日本株</h1>
-  <p class="dek">前営業日（7月21日）の東京市場で値上がり率・出来高が目立った銘柄を、客観的な事実だけでまとめました。</p>
+  <p class="dek">本日（7月22日）の東京市場で値上がり率・値下がり率が目立った銘柄を、客観的な事実だけでまとめました。</p>
 
   <div class="notice">
     <strong>このコーナーについて：</strong>特定銘柄の「買い時」「売り時」を示すものではありません。公表されている株価・決算・適時開示情報をもとに、何が起きたかを整理したものです。売買の最終判断はご自身の分析と責任で行ってください。
   </div>
 
   <div class="timing">
-    ⏱ 朝の配信時点では本日の東京市場はまだ取引開始前のため、掲載データは<strong>前営業日（7月21日）の大引け時点</strong>の終値ベースです。
+    ⏱ 掲載データは本日（2026年7月22日）の東証大引け時点の終値ベースです。
   </div>
 
   <div class="ticker">
     <div class="ticker-item">
-      <div class="ticker-name">日経平均（7/21大引け）</div>
-      <div class="ticker-value">66,232.19</div>
-      <div class="ticker-delta up">▲ +2,091.07（+3.26%）</div>
+      <div class="ticker-name">日経平均（大引け）</div>
+      <div class="ticker-value">66,115.60</div>
+      <div class="ticker-delta down">▼ &minus;116.59（&minus;0.18%）</div>
     </div>
     <div class="ticker-item">
-      <div class="ticker-name">TOPIX（7/21大引け）</div>
-      <div class="ticker-value">4,014.95</div>
-      <div class="ticker-delta up">▲ +95.74（+2.44%）</div>
+      <div class="ticker-name">寄与度上位</div>
+      <div class="ticker-value" style="font-size:14px;">キオクシア・イビデン・京セラ</div>
+      <div class="ticker-delta" style="color:#93A0BD;">日経平均を押し上げ</div>
     </div>
   </div>
 
@@ -97,85 +97,88 @@
     <div class="card">
       <div class="card-top">
         <div class="card-name">
-          <h2>キオクシアHD</h2>
-          <span class="code">285A</span>
+          <h2>多木化学</h2>
+          <span class="code">4025</span>
           <span class="tag plus" style="display:block; margin-top:8px;">POSITIVE</span>
         </div>
         <div class="card-move">
-          <div class="value up">▲ 61,060円</div>
-          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--advance);">+8,950円 (+17.18%)</div>
+          <div class="value up">▲ 5,380円</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--advance);">+465円 (+9.46%)</div>
         </div>
       </div>
       <div class="card-body">
-        <p><span class="label">材料</span>3連休前（17日）にストップ安まで売られていた反動から一転急伸。米SOX指数の反発や、韓国総合株価指数（KOSPI）が3%超上昇したことも投資家心理を支えた。信用取引の買い戻し（踏み上げ）も入ったと報じられている。</p>
-        <p><span class="label">値動き</span>東証プライムの値上がり率1位。前営業日比8,950円（17.18%）高の61,060円で引けた。</p>
-        <div class="watch-line">📊 チャートの見方：直近で大きく売られた銘柄が急反発する場面では、空売りの買い戻しが値動きを増幅させることがあります。</div>
+        <p><span class="label">材料</span>英国系の投資ファンドが同社株を大量保有していることが明らかになったと報じられ、思惑買いが集まった。</p>
+        <p><span class="label">値動き</span>東証プライムの値上がり率1位。前日比465円（9.46%）高の5,380円で引けた。</p>
+        <div class="watch-line">📊 チャートの見方：大口投資家の保有比率が明らかになる場面は、将来的な経営関与や株主還元強化への期待から、思惑的な買いが入りやすいとされています。</div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-top">
         <div class="card-name">
-          <h2>イビデン</h2>
-          <span class="code">4062</span>
+          <h2>インソース</h2>
+          <span class="code">6200</span>
           <span class="tag plus" style="display:block; margin-top:8px;">POSITIVE</span>
         </div>
         <div class="card-move">
-          <div class="value up">▲ +11.03%</div>
+          <div class="value up">▲ 690円</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--advance);">+59円 (+9.35%)</div>
         </div>
       </div>
       <div class="card-body">
-        <p><span class="label">材料</span>SMBC日興証券が投資判断を引き上げ、「技術優位性が高まっている」とレポートで評価。半導体パッケージ基板関連としてAI関連の設備投資テーマにも位置づけられている銘柄。</p>
-        <p><span class="label">値動き</span>前営業日比11.03%高。値上がり率ランキング上位に入った。</p>
-        <div class="watch-line">📊 チャートの見方：証券会社の投資判断（レーティング）引き上げは、機関投資家の見方が変化するきっかけとして値動きに影響することがあります。</div>
+        <p><span class="label">材料</span>値上がり率ランキング2位。個別の適時開示は確認できず、需給主導の買いが入った可能性がある。</p>
+        <p><span class="label">値動き</span>前日比59円（9.35%）高の690円で引けた。</p>
+        <div class="watch-line">📊 チャートの見方：明確な材料が確認できない急騰は、値動きの持続性を見極めるまで慎重に見る向きもあります。</div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-top">
         <div class="card-name">
-          <h2>サイゼリヤ</h2>
-          <span class="code">7581</span>
+          <h2>澁澤倉庫</h2>
+          <span class="code">9304</span>
           <span class="tag minus" style="display:block; margin-top:8px;">CAUTION</span>
         </div>
         <div class="card-move">
-          <div class="value down">▼ &minus;4.21%</div>
+          <div class="value down">▼ 1,838円</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--decline);">&minus;298円 (&minus;13.95%)</div>
         </div>
       </div>
       <div class="card-body">
-        <p><span class="label">材料</span>7月16日に決算好感・値上げ検討表明でストップ高（+17.3%）となった後、値下がり率ランキング1位に。急伸の反動で利益確定の売りが出た可能性がある。</p>
-        <p><span class="label">値動き</span>前営業日比4.21%安。</p>
-        <div class="watch-line">📊 チャートの見方：好材料で急騰した銘柄は、その後の数営業日で利益確定売りが出やすく、値動きが荒くなる傾向があるとされています。</div>
+        <p><span class="label">材料</span>東証プライムの値下がり率1位。直近の株価上昇が続いていた銘柄で、個別の悪材料は確認できず、利益確定売りが出た可能性がある。</p>
+        <p><span class="label">値動き</span>前日比298円（13.95%）安の1,838円で引けた。</p>
+        <div class="watch-line">📊 チャートの見方：材料のない急落は、直前までの上昇分に対する需給的な調整として見られることがあります。</div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-top">
         <div class="card-name">
-          <h2>任天堂</h2>
-          <span class="code">7974</span>
+          <h2>タカラトミー</h2>
+          <span class="code">7867</span>
           <span class="tag minus" style="display:block; margin-top:8px;">CAUTION</span>
         </div>
         <div class="card-move">
-          <div class="value down">▼ &minus;4.13%</div>
+          <div class="value down">▼ 3,455円</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--decline);">&minus;235円 (&minus;6.37%)</div>
         </div>
       </div>
       <div class="card-body">
-        <p><span class="label">材料</span>3連休前（17日）に前日比3%高となった後、一転して売り気配で始まった。明確な個別材料は伝えられておらず、直近の上昇に対する利益確定売りが出た可能性がある。</p>
-        <p><span class="label">値動き</span>一時、前営業日比378円（5.18%）安の6,916円まで下落する場面があった。</p>
-        <div class="watch-line">📊 チャートの見方：指数全体が大幅高となった日でも、直前まで上昇していた個別銘柄には利益確定売りが出て逆行安となることがあります。</div>
+        <p><span class="label">材料</span>値下がり率ランキング3位。個別の悪材料は確認できておらず、業種別では小売業・精密機器などが本日下落した業種に含まれる。</p>
+        <p><span class="label">値動き</span>前日比235円（6.37%）安の3,455円で引けた。</p>
+        <div class="watch-line">📊 チャートの見方：個別材料が乏しい下落は、同業種・関連銘柄への売りが波及した結果であることもあります。</div>
       </div>
     </div>
 
   </div>
 
   <section class="edu">
-    <h3>今日の用語メモ：踏み上げ（信用買い戻し）</h3>
-    <p><strong>踏み上げ</strong>とは、値下がりを見込んで株を借りて売っていた投資家（空売り筋）が、想定に反して株価が上昇したため、損失を抑えるために買い戻しに走る現象のこと。買い戻しそのものが新たな買い需要となり、株価の上昇を加速させることがあります。</p>
+    <h3>今日の用語メモ：日経平均寄与度</h3>
+    <p><strong>寄与度</strong>とは、個別銘柄の値動きが日経平均株価全体をどれだけ押し上げた（押し下げた）かを示す指標のこと。値がさ株（株価水準が高い銘柄）ほど、日経平均への影響が大きくなる傾向があります。</p>
   </section>
 
   <footer>
-    <p>本記事の情報は投資勧誘ではありません。教育・参考目的のみで提供しています。個別銘柄の売買を推奨するものではなく、投資判断はご自身の責任で行ってください。掲載データは前営業日の東証大引け時点の終値ベースです。</p>
+    <p>本記事の情報は投資勧誘ではありません。教育・参考目的のみで提供しています。個別銘柄の売買を推奨するものではなく、投資判断はご自身の責任で行ってください。掲載データは本日の東証大引け時点の終値ベースです。</p>
   </footer>
 
 </div>
