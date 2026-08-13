@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>実例で学ぶ、チャートと用語｜かな塾長秘書AI投資ナビ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#141F33; --ink-soft:#465066; --paper:#E7EBF1; --surface:#FFFFFF;
+  --rule:#C7D1DE; --decline:#2A5CAA; --advance:#B23B3B; --gold:#9C7A2E; --gold-soft:#EFE6D2;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{ scroll-behavior:smooth; }
+body{ background:var(--paper); color:var(--ink); font-family:'Zen Kaku Gothic New', sans-serif; line-height:1.9; -webkit-font-smoothing:antialiased; padding:56px 20px 80px; }
+:target{ animation:target-flash 1.8s ease; }
+@keyframes target-flash{ 0%{ box-shadow:0 0 0 3px var(--gold); } 100%{ box-shadow:0 0 0 0 rgba(0,0,0,0); } }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } :target{ animation:none; } }
+.page{ max-width:920px; margin:0 auto; }
+
+/* ---- shared header pattern (same as jp/us-watch) ---- */
+.eyebrow{ display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:.12em; color:var(--gold); font-weight:700; margin-bottom:22px; }
+.eyebrow .dot{ width:7px; height:7px; border-radius:50%; background:var(--gold); display:inline-block; }
+.eyebrow .sep{ color:var(--rule); }
+.back-link{ margin-bottom:24px; }
+.back-link a{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft); text-decoration:none; }
+
+h1{ font-family:'Shippori Mincho', serif; font-weight:700; font-size:clamp(28px, 4.4vw, 40px); line-height:1.5; margin-bottom:14px; max-width:12ch; }
+.dek{ font-size:15px; color:var(--ink-soft); border-left:3px solid var(--gold); padding-left:14px; margin-bottom:40px; max-width:520px; }
+
+/* ---- SIGNATURE: annotated chart hero ---- */
+.hero-chart{ background:var(--ink); border-radius:2px; padding:28px 24px 22px; margin-bottom:56px; position:relative; scroll-margin-top:24px; }
+.hero-chart .case-tag{ font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.1em; color:var(--gold); font-weight:700; margin-bottom:4px; }
+.hero-chart .case-name{ font-family:'Shippori Mincho', serif; font-size:22px; color:#F4F5F7; font-weight:700; margin-bottom:2px; }
+.hero-chart .case-sub{ font-family:'JetBrains Mono', monospace; font-size:12px; color:#93A0BD; margin-bottom:18px; }
+.hero-chart svg{ width:100%; height:auto; display:block; }
+.hero-chart .chart-note{ margin-top:18px; font-size:13px; color:#B9C2D6; max-width:60ch; }
+.hero-chart .chart-note strong{ color:#F4F5F7; }
+
+/* callout labels inside svg use these via foreignObject-free text/tspan + circle markers, styled by class */
+.co-dot{ fill:var(--gold); }
+.co-line{ stroke:#5A6478; stroke-width:1; stroke-dasharray:2 3; }
+.co-label{ font-family:'JetBrains Mono', monospace; font-size:11px; fill:#D9DEE8; }
+.co-label-title{ font-family:'Zen Kaku Gothic New', sans-serif; font-size:12.5px; font-weight:700; fill:#F4F5F7; }
+.price-line{ fill:none; stroke:var(--advance); stroke-width:2; }
+.axis-label{ font-family:'JetBrains Mono', monospace; font-size:10px; fill:#6B7690; }
+.wick{ stroke:#5A6478; }
+.candle{ stroke:none; }
+.candle.up{ fill:var(--advance); }
+.candle.down{ fill:var(--decline); }
+.candle.strong{ stroke:var(--gold); stroke-width:1.5; }
+.vol-bar rect{ fill:#3A4763; }
+.vol-bar rect.vol-spike{ fill:var(--gold); }
+
+/* ---- section labels (same pattern as watch pages) ---- */
+.section-label{ font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.1em; color:var(--gold); font-weight:700; margin-bottom:6px; }
+.section-title{ font-family:'Shippori Mincho', serif; font-size:22px; font-weight:700; margin-bottom:28px; }
+
+/* ---- lesson cards ---- */
+.lessons{ display:grid; grid-template-columns:repeat(2, 1fr); gap:2px; margin-bottom:56px; }
+.lesson{ background:var(--surface); border:1px solid var(--rule); padding:24px; display:flex; flex-direction:column; scroll-margin-top:24px; }
+.lesson-term{ font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:.08em; color:var(--gold); font-weight:700; margin-bottom:6px; }
+.lesson h3{ font-family:'Shippori Mincho', serif; font-size:19px; font-weight:700; margin-bottom:12px; }
+.lesson-case{ display:flex; align-items:baseline; gap:8px; padding:10px 12px; background:var(--paper); border-left:3px solid var(--gold); margin-bottom:14px; }
+.lesson-case .name{ font-weight:700; font-size:13.5px; }
+.lesson-case .code{ font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-soft); }
+.lesson-case .move{ margin-left:auto; font-family:'JetBrains Mono', monospace; font-size:13px; font-weight:700; }
+.lesson-case .move.up{ color:var(--advance); }
+.lesson-case .move.down{ color:var(--decline); }
+.lesson p{ font-size:13.5px; color:#2B3548; margin-bottom:10px; }
+.lesson p:last-of-type{ margin-bottom:0; }
+.lesson .mini-chart{ margin:4px 0 14px; height:56px; }
+.lesson .mini-chart svg{ width:100%; height:100%; display:block; }
+.lesson .mini-chart .mc-line{ fill:none; stroke-width:2; }
+.lesson .mini-chart .mc-line.up{ stroke:var(--advance); }
+.lesson .mini-chart .mc-line.down{ stroke:var(--decline); }
+.lesson .mini-chart .mc-flat{ stroke:var(--rule); stroke-width:1; stroke-dasharray:2 2; }
+.read-more{ margin-top:auto; padding-top:14px; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--gold); font-weight:700; }
+.read-more::after{ content:" →"; }
+
+@media (max-width:720px){ .lessons{ grid-template-columns:1fr; } }
+
+/* ---- glossary index ---- */
+.glossary{ background:var(--surface); border:1px solid var(--rule); padding:8px 0; margin-bottom:16px; }
+.glossary-group{ padding:20px 26px; border-bottom:1px solid var(--rule); }
+.glossary-group:last-child{ border-bottom:none; }
+.glossary-group h4{ font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:.1em; color:var(--gold); font-weight:700; margin-bottom:16px; }
+.def{ padding:14px 16px; border-radius:2px; margin-bottom:4px; scroll-margin-top:24px; }
+.def:last-child{ margin-bottom:0; }
+.def-head{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:6px; }
+.def-head h5{ font-family:'Shippori Mincho', serif; font-size:15.5px; font-weight:700; }
+.def-jump{ font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--gold); text-decoration:none; white-space:nowrap; }
+.def p{ font-size:13.5px; color:#2B3548; }
+
+footer{ margin-top:40px; padding-top:22px; border-top:1px solid var(--rule); }
+footer p{ font-size:12px; color:#7A8397; line-height:1.9; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="eyebrow">
+    <span class="dot"></span>LEARN<span class="sep">/</span>CHART &amp; TERMS
+  </div>
+  <div class="back-link"><a href="index.html">← ホームに戻る</a></div>
+
+  <h1>実例で学ぶ、チャートと用語</h1>
+  <p class="dek">「材料株ウォッチ」で実際に取り上げた銘柄の値動きを教材に、チャートの読み方と投資用語を一つずつ確認していくページです。</p>
+
+  <!-- ============ SIGNATURE: annotated real chart ============ -->
+  <div class="hero-chart" id="lesson-fujikura">
+    <div class="case-tag">CASE STUDY — 2026.08.07</div>
+    <div class="case-name">フジクラ〈5803〉が引け後修正でなく“取引時間中”に急伸した日</div>
+    <div class="case-sub">14:00発表 → 大引けまでに株価が動いた実例</div>
+
+    <svg viewBox="0 0 860 400" xmlns="http://www.w3.org/2000/svg">
+      <!-- price panel gridlines -->
+      <line x1="40" y1="40" x2="820" y2="40" stroke="#26314A" stroke-width="1"/>
+      <line x1="40" y1="150" x2="820" y2="150" stroke="#26314A" stroke-width="1"/>
+      <line x1="40" y1="245" x2="820" y2="245" stroke="#26314A" stroke-width="1"/>
+      <line x1="40" y1="40" x2="40" y2="245" stroke="#2B3A57" stroke-width="1"/>
+      <text x="30" y="44" class="axis-label" text-anchor="end">+15%</text>
+      <text x="30" y="154" class="axis-label" text-anchor="end">±0%</text>
+      <text x="30" y="249" class="axis-label" text-anchor="end">−5%</text>
+
+      <!-- candlesticks: 9:00-15:00, 15分足 24本 -->
+      <g stroke-width="1.4">
+        <!-- 0 -->  <line x1="70"  y1="146" x2="70"  y2="153" class="wick"/><rect x="63"  y="149" width="14" height="1" class="candle up"/>
+        <!-- 1 -->  <line x1="100" y1="145" x2="100" y2="152" class="wick"/><rect x="93"  y="147" width="14" height="2" class="candle up"/>
+        <!-- 2 -->  <line x1="130" y1="143" x2="130" y2="150" class="wick"/><rect x="123" y="147" width="14" height="1" class="candle down"/>
+        <!-- 3 -->  <line x1="160" y1="144" x2="160" y2="151" class="wick"/><rect x="153" y="146" width="14" height="2" class="candle up"/>
+        <!-- 4 -->  <line x1="190" y1="142" x2="190" y2="149" class="wick"/><rect x="183" y="146" width="14" height="1" class="candle down"/>
+        <!-- 5 -->  <line x1="220" y1="145" x2="220" y2="152" class="wick"/><rect x="213" y="147" width="14" height="2" class="candle down"/>
+        <!-- 6 -->  <line x1="250" y1="145" x2="250" y2="151" class="wick"/><rect x="243" y="148" width="14" height="1" class="candle up"/>
+        <!-- 7 -->  <line x1="280" y1="148" x2="280" y2="153" class="wick"/><rect x="273" y="148" width="14" height="2" class="candle down"/>
+        <!-- 8 -->  <line x1="310" y1="146" x2="310" y2="152" class="wick"/><rect x="303" y="148" width="14" height="2" class="candle up"/>
+        <!-- 9 -->  <line x1="340" y1="144" x2="340" y2="150" class="wick"/><rect x="333" y="146" width="14" height="2" class="candle up"/>
+        <!-- 10 --> <line x1="370" y1="146" x2="370" y2="151" class="wick"/><rect x="363" y="146" width="14" height="3" class="candle down"/>
+        <!-- 11 --> <line x1="400" y1="145" x2="400" y2="150" class="wick"/><rect x="393" y="147" width="14" height="2" class="candle up"/>
+        <!-- 12 --> <line x1="430" y1="143" x2="430" y2="149" class="wick"/><rect x="423" y="145" width="14" height="2" class="candle up"/>
+        <!-- 13 --> <line x1="460" y1="144" x2="460" y2="151" class="wick"/><rect x="453" y="145" width="14" height="4" class="candle down"/>
+        <!-- 14 14:00発表 --> <line x1="490" y1="93" x2="490" y2="150" class="wick"/><rect x="481" y="100" width="18" height="49" class="candle up strong"/>
+        <!-- 15 --> <line x1="520" y1="78" x2="520" y2="102" class="wick"/><rect x="513" y="85" width="14" height="15" class="candle up"/>
+        <!-- 16 --> <line x1="550" y1="68" x2="550" y2="88" class="wick"/><rect x="543" y="75" width="14" height="10" class="candle up"/>
+        <!-- 17 --> <line x1="580" y1="63" x2="580" y2="78" class="wick"/><rect x="573" y="68" width="14" height="7" class="candle up"/>
+        <!-- 18 --> <line x1="610" y1="58" x2="610" y2="72" class="wick"/><rect x="603" y="63" width="14" height="5" class="candle up"/>
+        <!-- 19 --> <line x1="640" y1="56" x2="640" y2="68" class="wick"/><rect x="633" y="60" width="14" height="3" class="candle up"/>
+        <!-- 20 --> <line x1="670" y1="53" x2="670" y2="64" class="wick"/><rect x="663" y="58" width="14" height="2" class="candle up"/>
+        <!-- 21 --> <line x1="700" y1="56" x2="700" y2="65" class="wick"/><rect x="693" y="58" width="14" height="3" class="candle down"/>
+        <!-- 22 --> <line x1="730" y1="60" x2="730" y2="68" class="wick"/><rect x="723" y="61" width="14" height="3" class="candle down"/>
+        <!-- 23 大引け --> <line x1="760" y1="61" x2="760" y2="70" class="wick"/><rect x="753" y="64" width="14" height="2" class="candle down"/>
+      </g>
+
+      <!-- 出来高パネル -->
+      <text x="30" y="270" class="axis-label" text-anchor="end">出来高</text>
+      <g class="vol-bar">
+        <rect x="63"  y="279" width="14" height="10"/><rect x="93"  y="273" width="14" height="16"/><rect x="123" y="277" width="14" height="12"/>
+        <rect x="153" y="271" width="14" height="18"/><rect x="183" y="275" width="14" height="14"/><rect x="213" y="269" width="14" height="20"/>
+        <rect x="243" y="278" width="14" height="11"/><rect x="273" y="273" width="14" height="16"/><rect x="303" y="270" width="14" height="19"/>
+        <rect x="333" y="276" width="14" height="13"/><rect x="363" y="268" width="14" height="21"/><rect x="393" y="277" width="14" height="12"/>
+        <rect x="423" y="274" width="14" height="15"/><rect x="453" y="264" width="14" height="25"/>
+        <rect x="481" y="224" width="18" height="65" class="vol-spike"/>
+        <rect x="513" y="245" width="14" height="44"/><rect x="543" y="252" width="14" height="37"/><rect x="573" y="257" width="14" height="32"/>
+        <rect x="603" y="261" width="14" height="28"/><rect x="633" y="264" width="14" height="25"/><rect x="663" y="267" width="14" height="22"/>
+        <rect x="693" y="269" width="14" height="20"/><rect x="723" y="271" width="14" height="18"/><rect x="753" y="273" width="14" height="16"/>
+      </g>
+      <line x1="40" y1="289" x2="820" y2="289" stroke="#26314A" stroke-width="1"/>
+
+      <!-- time axis -->
+      <text x="63" y="308" class="axis-label">9:00</text>
+      <text x="333" y="308" class="axis-label">11:30</text>
+      <text x="481" y="308" class="axis-label">14:00</text>
+      <text x="720" y="308" class="axis-label">15:00 大引け</text>
+
+      <!-- 14:00 announcement marker -->
+      <line x1="490" y1="40" x2="490" y2="289" stroke="var(--gold)" stroke-width="1" stroke-dasharray="3 3"/>
+      <circle cx="490" cy="330" r="3" class="co-dot"/>
+      <line x1="490" y1="330" x2="490" y2="345" class="co-line"/>
+      <text x="490" y="360" class="co-label-title" text-anchor="middle">14:00 上方修正を発表</text>
+      <text x="490" y="376" class="co-label" text-anchor="middle">純利益見通し970億円上振れ（2.1倍）・出来高も急増</text>
+
+      <!-- gap/window annotation -->
+      <circle cx="499" cy="100" r="4" class="co-dot"/>
+      <line x1="499" y1="100" x2="560" y2="55" class="co-line"/>
+      <text x="566" y="50" class="co-label-title">窓（ギャップ）＝直前の値幅を</text>
+      <text x="566" y="66" class="co-label">飛び越えて価格がジャンプする現象</text>
+
+      <!-- close annotation -->
+      <circle cx="760" cy="61" r="4" class="co-dot"/>
+      <line x1="760" y1="61" x2="700" y2="30" class="co-line"/>
+      <text x="700" y="20" class="co-label-title" text-anchor="end">大引け +12.8%（5,185円）</text>
+    </svg>
+
+    <p class="chart-note"><strong>読み方のポイント：</strong>この日のフジクラは寄り付きから14時までほぼ横ばいでしたが、取引時間中に業績の大幅な上方修正が伝わった瞬間、株価が直前の値幅を飛び越えて跳ね上がりました。この「価格が連続せずに飛ぶ」動きを<strong>窓（ギャップ）</strong>と呼びます。引け後ではなく取引時間中に材料が出た好例です。</p>
+  </div>
+
+  <!-- ============ LESSON GRID ============ -->
+  <div class="section-label">LESSONS</div>
+  <div class="section-title">実例レッスン 一覧</div>
+
+  <div class="lessons">
+
+    <div class="lesson" id="lesson-stop-high">
+      <div class="lesson-term">用語：ストップ高／ストップ安</div>
+      <h3>値幅制限いっぱいまで動いた日</h3>
+      <div class="lesson-case">
+        <span class="name">イビデン</span><span class="code">4062</span>
+        <span class="move up">+24.49%</span>
+      </div>
+      <div class="mini-chart">
+        <svg viewBox="0 0 300 60" preserveAspectRatio="none">
+          <line x1="0" y1="10" x2="300" y2="10" class="mc-flat"/>
+          <path class="mc-line up" d="M 10,45 L 35,44 L 60,45 L 85,43 L 110,44 L 135,38 L 160,32 L 185,26 L 210,20 L 235,16 L 260,12 L 280,10"/>
+        </svg>
+      </div>
+      <p>1日の値動きには証券取引所が定めた上限・下限（値幅制限）があります。8月5日、イビデンは業績の上方修正と株式分割を同時に発表し、買い注文が売り注文を大きく上回ってこの上限に到達＝ストップ高となりました。</p>
+      <a class="read-more" href="#def-stop-high">この用語をもっと詳しく</a>
+    </div>
+
+    <div class="lesson" id="lesson-zaiwari">
+      <div class="lesson-term">用語：材料出尽くし</div>
+      <h3>好決算でも下がった日</h3>
+      <div class="lesson-case">
+        <span class="name">ファナック</span><span class="code">6954</span>
+        <span class="move down">&minus;14.31%</span>
+      </div>
+      <div class="mini-chart">
+        <svg viewBox="0 0 300 60" preserveAspectRatio="none">
+          <line x1="0" y1="45" x2="300" y2="45" class="mc-flat"/>
+          <path class="mc-line down" d="M 10,15 L 35,14 L 60,17 L 85,15 L 110,19 L 135,28 L 160,33 L 185,38 L 210,44 L 235,47 L 260,49 L 280,50"/>
+        </svg>
+      </div>
+      <p>8月3日、ファナックは業績予想を上方修正したにもかかわらず株価は急落しました。市場がすでにそれ以上の増益を期待していた場合、発表内容が「期待未達」と受け止められ、好材料でも売られることがあります。</p>
+      <a class="read-more" href="#def-zaiwari">この用語をもっと詳しく</a>
+    </div>
+
+    <div class="lesson" id="lesson-kiyodo">
+      <div class="lesson-term">用語：指数寄与度</div>
+      <h3>1銘柄が指数を動かした日</h3>
+      <div class="lesson-case">
+        <span class="name">アドバンテスト</span><span class="code">6857</span>
+        <span class="move up">日経平均 +433円</span>
+      </div>
+      <div class="mini-chart">
+        <svg viewBox="0 0 300 60" preserveAspectRatio="none">
+          <line x1="0" y1="30" x2="300" y2="30" class="mc-flat"/>
+          <path class="mc-line up" d="M 10,40 L 40,41 L 70,38 L 90,39 L 100,25 L 115,12 L 140,9 L 170,11 L 200,9 L 230,12 L 260,10 L 300,12"/>
+        </svg>
+      </div>
+      <p>7月30日、アドバンテストが業績予想を69%上方修正すると発表し、この1銘柄だけで日経平均を約700円押し上げました。日経平均は株価水準の高い銘柄ほど指数への影響力が大きい「価格加重平均型」だからです。</p>
+      <a class="read-more" href="#def-kiyodo">この用語をもっと詳しく</a>
+    </div>
+
+    <div class="lesson" id="lesson-sayayose">
+      <div class="lesson-term">用語：サヤ寄せ</div>
+      <h3>買収発表で価格が収れんした日</h3>
+      <div class="lesson-case">
+        <span class="name">JPMC</span><span class="code">3276</span>
+        <span class="move up">+21.95%</span>
+      </div>
+      <div class="mini-chart">
+        <svg viewBox="0 0 300 60" preserveAspectRatio="none">
+          <line x1="0" y1="12" x2="300" y2="12" class="mc-flat"/>
+          <path class="mc-line up" d="M 10,45 L 40,44 L 60,45 L 80,43 L 100,30 L 120,18 L 145,13 L 175,12 L 210,11 L 245,11 L 280,11"/>
+        </svg>
+      </div>
+      <p>8月4日、JPMCがMBO（経営陣による自社買収）の実施を発表すると、株価はTOB予定価格に向かって急速に近づきました。この値動きを「サヤ寄せ」と呼び、M&amp;A発表銘柄によく見られるパターンです。</p>
+      <a class="read-more" href="#def-sayayose">この用語をもっと詳しく</a>
+    </div>
+
+    <div class="lesson" id="lesson-nejire">
+      <div class="lesson-term">用語：騰落レシオ・指数とのねじれ</div>
+      <h3>指数は下げたのに、多くの銘柄は上がっていた日</h3>
+      <div class="lesson-case">
+        <span class="name">日経平均</span><span class="code">225</span>
+        <span class="move down">&minus;0.12%（値上がり939 : 値下がり582）</span>
+      </div>
+      <div class="mini-chart">
+        <svg viewBox="0 0 300 60" preserveAspectRatio="none">
+          <line x1="0" y1="30" x2="300" y2="30" class="mc-flat"/>
+          <path class="mc-line down" d="M 10,25 L 40,22 L 70,24 L 100,20 L 130,28 L 160,44 L 190,41 L 220,43 L 250,42 L 280,44"/>
+        </svg>
+      </div>
+      <p>8月7日、日経平均はわずかに下落しましたが、値上がり銘柄数は値下がり銘柄数を大きく上回っていました。値がさ株の急落が指数を押し下げただけで、市場全体は底堅かったことを示す一例です。</p>
+      <a class="read-more" href="#def-nejire">この用語をもっと詳しく</a>
+    </div>
+
+    <div class="lesson" id="lesson-pts">
+      <div class="lesson-term">用語：PTS（私設取引システム）</div>
+      <h3>取引所が閉まった後にも値段はつく</h3>
+      <div class="lesson-case">
+        <span class="name">円谷フィールズHD</span><span class="code">2767</span>
+        <span class="move up">PTSで終値比 +26.1%</span>
+      </div>
+      <div class="mini-chart">
+        <svg viewBox="0 0 300 60" preserveAspectRatio="none">
+          <line x1="0" y1="35" x2="300" y2="35" class="mc-flat"/>
+          <path class="mc-line up" d="M 10,34 L 60,35 L 100,33 L 130,34 L 150,32 L 160,18 L 180,10 L 210,9 L 240,8 L 270,7 L 300,8"/>
+        </svg>
+      </div>
+      <p>東証の取引時間外でも、PTS（私設取引システム）では株式の売買が可能です。7月27日夜、円谷フィールズHDはPTSで終値比26%超上昇。翌営業日の東証寄り付きの値動きを占う先行指標として見られることがあります。</p>
+      <a class="read-more" href="#def-pts">この用語をもっと詳しく</a>
+    </div>
+
+  </div>
+
+  <!-- ============ GLOSSARY: FULL DEFINITIONS ============ -->
+  <div class="section-label">INDEX</div>
+  <div class="section-title">用語さくいん</div>
+
+  <div class="glossary">
+    <div class="glossary-group">
+      <h4>値動き・チャート</h4>
+
+      <div class="def" id="def-stop-high">
+        <div class="def-head"><h5>ストップ高／ストップ安</h5><a class="def-jump" href="#lesson-stop-high">実例：イビデン ↑</a></div>
+        <p>取引所が定めた1日の値幅制限の上限（ストップ高）・下限（ストップ安）まで株価が動き、それ以上値がつかなくなる状態。買い注文（または売り注文）が極端に偏った日に起こります。</p>
+      </div>
+
+      <div class="def" id="def-gap">
+        <div class="def-head"><h5>窓（ギャップ）</h5><a class="def-jump" href="#lesson-fujikura">実例：フジクラ ↑</a></div>
+        <p>直前の値幅を飛び越えて価格が不連続にジャンプする値動き。取引時間中や寄り付きに強い材料が出たときに生じ、チャート上に空白（窓）ができて見えることが名前の由来です。</p>
+      </div>
+
+      <div class="def" id="def-candle">
+        <div class="def-head"><h5>陽線／陰線</h5></div>
+        <p>ローソク足チャートで、始値より終値が高く終わった日を陽線、安く終わった日を陰線と呼びます。色の並びを見るだけで、その期間の値動きの方向感をおおまかに把握できます。</p>
+      </div>
+
+      <div class="def" id="def-cross">
+        <div class="def-head"><h5>ゴールデンクロス／デッドクロス</h5></div>
+        <p>短期の移動平均線が長期の移動平均線を下から上に抜けることをゴールデンクロス（上昇転換のサインとされる）、逆に上から下に抜けることをデッドクロスと呼びます。</p>
+      </div>
+
+      <div class="def" id="def-nejire">
+        <div class="def-head"><h5>騰落レシオ・指数とのねじれ</h5><a class="def-jump" href="#lesson-nejire">実例：8/7の日経平均 ↑</a></div>
+        <p>値上がり銘柄数と値下がり銘柄数の比率のこと。指数の騰落幅と、この比率が逆方向に動く（指数は下げても値上がり銘柄の方が多い、など）ことがあり、指数の見た目だけでは分からない市場の実態を映します。</p>
+      </div>
+    </div>
+
+    <div class="glossary-group">
+      <h4>需給・取引の仕組み</h4>
+
+      <div class="def" id="def-pts">
+        <div class="def-head"><h5>PTS（私設取引システム）</h5><a class="def-jump" href="#lesson-pts">実例：円谷フィールズHD ↑</a></div>
+        <p>証券取引所を介さずに株式を売買できる私設の取引システム。東証の取引時間外でも売買が可能で、引け後に出たニュースへの反応をいち早く観察できますが、参加者が少なく値動きが実際の需給以上に大きく出やすい点に注意が必要です。</p>
+      </div>
+
+      <div class="def" id="def-kiyodo">
+        <div class="def-head"><h5>指数寄与度</h5><a class="def-jump" href="#lesson-kiyodo">実例：アドバンテスト ↑</a></div>
+        <p>個別銘柄の値動きが日経平均などの指数全体をどれだけ押し上げ・押し下げたかを示す指標。日経平均は株価水準の高い銘柄ほど指数への影響力が大きい「価格加重平均型」のため、値がさ株1銘柄の動きが指数全体を左右することがあります。</p>
+      </div>
+
+      <div class="def" id="def-sayayose">
+        <div class="def-head"><h5>サヤ寄せ</h5><a class="def-jump" href="#lesson-sayayose">実例：JPMC ↑</a></div>
+        <p>MBOやTOBが発表された銘柄の株価が、買い取り予定価格に向かって急速に近づいていく値動きのこと。発表直後に株価が大きく動く典型的なパターンです。</p>
+      </div>
+
+      <div class="def" id="def-volume">
+        <div class="def-head"><h5>出来高</h5></div>
+        <p>一定期間内に売買が成立した株数のこと。値動きの大きさに対して出来高が多いほど、その値動きに多くの投資家の売買が伴っていることを示し、信頼性の目安の一つとされます。</p>
+      </div>
+
+      <div class="def" id="def-neagasa">
+        <div class="def-head"><h5>値がさ株</h5></div>
+        <p>1株当たりの株価水準が高い銘柄のこと。日経平均のような価格加重平均型の指数では、値がさ株の値動きが指数全体に与える影響が特に大きくなります。</p>
+      </div>
+    </div>
+
+    <div class="glossary-group">
+      <h4>決算・材料の読み方</h4>
+
+      <div class="def" id="def-zaiwari">
+        <div class="def-head"><h5>材料出尽くし</h5><a class="def-jump" href="#lesson-zaiwari">実例：ファナック ↑</a></div>
+        <p>事前に期待されていた好材料（決算など）が実際に発表されると、その期待がすでに株価に織り込まれていたために、発表後にむしろ売られてしまう現象。「上方修正でも下落する」ケースの多くはこれに該当します。</p>
+      </div>
+
+      <div class="def" id="def-revision">
+        <div class="def-head"><h5>上方修正／下方修正</h5></div>
+        <p>企業が期初に示した業績予想を、期中の実績を踏まえて上げる（上方修正）・下げる（下方修正）こと。修正の理由が本業の好調によるものか、為替など一過性の要因によるものかで、株価の反応が変わることがあります。</p>
+      </div>
+
+      <div class="def" id="def-surprise">
+        <div class="def-head"><h5>サプライズ決算</h5></div>
+        <p>市場の事前予想を大きく上回った（または下回った）決算内容のこと。株探などの情報サイトでは、決算発表シーズンにこうした銘柄を速報でまとめて取り上げています。</p>
+      </div>
+
+      <div class="def" id="def-mbo">
+        <div class="def-head"><h5>MBO・TOB</h5></div>
+        <p>MBO（マネジメント・バイアウト）は経営陣が自ら出資者となって自社株式を買い取る手法。実施の際は通常、TOB（株式公開買い付け）による買い取り価格が同時に示されます。</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>本ページの情報は投資勧誘ではありません。教育・参考目的のみで提供しています。掲載している値動きは「本日の材料株ウォッチ」で過去に取り上げた実際の事例に基づいていますが、チャートは値動きの形を分かりやすく示すための模式図です。</p>
+  </footer>
+
+</div>
+</body>
+</html>
