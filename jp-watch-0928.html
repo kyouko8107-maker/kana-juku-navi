@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>本日の材料株ウォッチ｜日本株｜2026.09.28</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141F33; --ink-soft:#465066; --paper:#E7EBF1; --surface:#FFFFFF;
+    --rule:#C7D1DE; --decline:#2A5CAA; --advance:#B23B3B; --gold:#9C7A2E; --gold-soft:#EFE6D2;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{ background:var(--paper); color:var(--ink); font-family:'Zen Kaku Gothic New', sans-serif; line-height:1.9; -webkit-font-smoothing:antialiased; padding:56px 20px 80px; }
+  .page{ max-width:820px; margin:0 auto; }
+  .eyebrow{ display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:.12em; color:var(--gold); font-weight:700; margin-bottom:22px; }
+  .eyebrow .dot{ width:7px; height:7px; border-radius:50%; background:var(--gold); display:inline-block; }
+  .eyebrow .sep{ color:var(--rule); }
+  h1{ font-family:'Shippori Mincho', serif; font-weight:700; font-size:clamp(26px, 4vw, 36px); line-height:1.5; margin-bottom:14px; }
+  .dek{ font-size:15px; color:var(--ink-soft); border-left:3px solid var(--gold); padding-left:14px; margin-bottom:20px; max-width:640px; }
+  .notice{ background:var(--ink); color:#D9DEE8; font-size:12.5px; line-height:1.8; padding:14px 18px; margin-bottom:20px; }
+  .notice strong{ color:#F4F5F7; }
+  .timing{ display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--ink-soft); background:var(--surface); border:1px solid var(--rule); padding:10px 16px; margin-bottom:32px; }
+  .ticker{ display:grid; grid-template-columns:repeat(2, 1fr); background:var(--ink); border-radius:2px; overflow:hidden; margin-bottom:44px; }
+  .ticker-item{ padding:18px 16px; border-right:1px solid rgba(255,255,255,.12); }
+  .ticker-item:last-child{ border-right:none; }
+  .ticker-name{ font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.08em; color:#93A0BD; margin-bottom:8px; }
+  .ticker-value{ font-family:'JetBrains Mono', monospace; font-size:19px; font-weight:700; color:#F4F5F7; margin-bottom:6px; font-variant-numeric:tabular-nums; }
+  .ticker-delta{ font-family:'JetBrains Mono', monospace; font-size:12px; font-weight:500; font-variant-numeric:tabular-nums; }
+  .ticker-delta.down{ color:#7FA6E0; }
+  .ticker-delta.up{ color:#E38686; }
+  .section-label{ font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.1em; color:var(--gold); font-weight:700; margin-bottom:14px; }
+  .cards{ display:grid; grid-template-columns:repeat(2, 1fr); gap:2px; margin-bottom:32px; }
+  .card{ background:var(--surface); border:1px solid var(--rule); padding:22px 24px; }
+  .card-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px; padding-bottom:14px; margin-bottom:14px; border-bottom:1px dashed var(--rule); }
+  .card-name{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .card-name .code{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--ink-soft); }
+  .card-name h2{ font-family:'Shippori Mincho', serif; font-size:19px; font-weight:700; }
+  .tag{ display:inline-block; font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:.05em; font-weight:700; padding:3px 8px; margin-top:6px; }
+  .tag.plus{ background:#F6E7E7; color:var(--advance); }
+  .tag.minus{ background:#E4EBF6; color:var(--decline); }
+  .card-move{ text-align:right; white-space:nowrap; }
+  .card-move .value{ font-family:'JetBrains Mono', monospace; font-size:19px; font-weight:700; font-variant-numeric:tabular-nums; }
+  .card-move .value.up{ color:var(--advance); }
+  .card-move .value.down{ color:var(--decline); }
+  .card-body p{ font-size:14px; color:#2B3548; margin-bottom:8px; }
+  .card-body p:last-child{ margin-bottom:0; }
+  .card-body .label{ font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:.08em; color:var(--gold); font-weight:700; display:block; margin-bottom:4px; }
+  .card-body .watch-line{ background:var(--gold-soft); padding:9px 12px; font-size:12.5px; color:var(--ink); border-left:3px solid var(--gold); margin-top:10px; }
+  section.edu{ background:var(--surface); border:1px solid var(--rule); padding:24px 26px; margin-bottom:40px; }
+  section.edu h3{ font-family:'Shippori Mincho', serif; font-size:17px; margin-bottom:12px; }
+  section.edu p{ font-size:14px; color:#2B3548; margin-bottom:8px; }
+  section.edu p:last-child{ margin-bottom:0; }
+  footer{ margin-top:8px; padding-top:22px; border-top:1px solid var(--rule); }
+  footer p{ font-size:12px; color:#7A8397; line-height:1.9; }
+  @media (max-width:720px){ .cards{ grid-template-columns:1fr; } }
+  @media (max-width:520px){
+    body{ padding:36px 16px 60px; } .card-top{ flex-direction:column; } .card-move{ text-align:left; }
+    .ticker{ grid-template-columns:1fr; } .ticker-item{ border-right:none; border-bottom:1px solid rgba(255,255,255,.12); } .ticker-item:last-child{ border-bottom:none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="eyebrow">
+    <span class="dot"></span>WATCHLIST<span class="sep">/</span>JAPAN STOCKS<span class="sep">/</span>2026.09.28 大引け
+  </div>
+
+  <div style="margin-bottom:24px;"><a href="index.html" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft); text-decoration:none;">← ホームに戻る</a></div>
+
+  <h1>本日の材料株ウォッチ｜日本株</h1>
+  <p class="dek">本日（9月28日）の東京市場で値動きが目立った銘柄を、客観的な事実だけでまとめました。</p>
+
+  <div class="notice">
+    <strong>このコーナーについて：</strong>特定銘柄の「買い時」「売り時」を示すものではありません。公表されている株価・決算・適時開示情報をもとに、何が起きたかを整理したものです。売買の最終判断はご自身の分析と責任で行ってください。
+  </div>
+
+  <div class="timing">
+    ⏱ 掲載データは本日（2026年9月28日）の東証大引け時点の情報です。
+  </div>
+
+  <div class="ticker">
+    <div class="ticker-item">
+      <div class="ticker-name">日経平均（大引け）</div>
+      <div class="ticker-value">65,877.62</div>
+      <div class="ticker-delta down">▼ &minus;486.58（&minus;0.73%）</div>
+    </div>
+    <div class="ticker-item">
+      <div class="ticker-name">背景</div>
+      <div class="ticker-value" style="font-size:13px;">6日ぶり反落、約6週間ぶりに6万7,000円回復も終日で失速</div>
+      <div class="ticker-delta" style="color:#93A0BD;">値下がり銘柄がプライム全体の7割、高安値幅1,100円超の荒い展開</div>
+    </div>
+  </div>
+
+  <div class="section-label">📈 本日、日中の値動きが目立った銘柄</div>
+  <div class="cards">
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-name">
+          <h2>Orchestra Holdings</h2>
+          <span class="code">6533</span>
+          <span class="tag plus" style="display:block; margin-top:8px;">POSITIVE</span>
+        </div>
+        <div class="card-move">
+          <div class="value up">▲ 1,528円</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--advance);">+300円 (+24.43%)</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p><span class="label">材料</span>東証プライムの値上がり率1位でストップ高。配当予想の増額修正と株主優待制度の拡充を同時に発表し、優待と配当を合わせた総合利回りが14%超に達したことが好感された。寄り付きから買い気配を切り上げ、朝方のうちにストップ高買い気配となった。</p>
+        <p><span class="label">値動き</span>前日比24.43%高の1,528円。</p>
+        <div class="watch-line">📊 チャートの見方：増配と株主優待拡充が同時に発表されると、特に個人投資家からの需要が急拡大し、株価の反応が大きくなる傾向があります。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-name">
+          <h2>ニデック</h2>
+          <span class="code">6594</span>
+          <span class="tag minus" style="display:block; margin-top:8px;">CAUTION</span>
+        </div>
+        <div class="card-move">
+          <div class="value down">▼ 2,340円</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--decline);">&minus;500円 (&minus;17.61%)</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p><span class="label">材料</span>東証プライムの値下がり率1位でストップ安。自動運転車関連として物色されていた銘柄だが、この日は一転して売りが優勢となった。寄り付きからストップ安売り気配で始まった。</p>
+        <p><span class="label">値動き</span>前日比17.61%安の2,340円。</p>
+        <div class="watch-line">📊 チャートの見方：テーマ株として物色されていた銘柄が突如ストップ安となる場合、直近までの上昇に対する反動、または個別の悪材料が重なっている可能性があります。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-name">
+          <h2>トーメンデバイス</h2>
+          <span class="code">2737</span>
+          <span class="tag minus" style="display:block; margin-top:8px;">CAUTION</span>
+        </div>
+        <div class="card-move">
+          <div class="value down">▼ 39,100円</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--decline);">&minus;4,600円 (&minus;10.53%)</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p><span class="label">材料</span>東証プライムの値下がり率2位。8月末から大幅増配・業績上方修正を材料に断続的に買われ、株価は約1カ月で数倍に急騰していた。直近まで買われすぎていた反動から、利益確定売りが優勢となった。</p>
+        <p><span class="label">値動き</span>前日比10.53%安の39,100円。</p>
+        <div class="watch-line">📊 チャートの見方：材料をきっかけに長期間買われ続けた銘柄は、ひとたび下落に転じると、積み上がった含み益を確定する売りが集中しやすくなります。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-name">
+          <h2>マネーフォワード</h2>
+          <span class="code">3994</span>
+          <span class="tag plus" style="display:block; margin-top:8px;">POSITIVE</span>
+        </div>
+        <div class="card-move">
+          <div class="value up">▲ 6,020円</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--advance);">+257円 (+4.46%)</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p><span class="label">材料</span>東証プライムの値上がり率3位。個別の適時開示内容は確認できず。相場全体が7割方値下がりする中での逆行高。</p>
+        <p><span class="label">値動き</span>前日比4.46%高の6,020円。</p>
+        <div class="watch-line">📊 チャートの見方：指数全体が大幅安となる日に上昇する銘柄は、相場全体の地合いよりも個別の需給要因が強く働いている可能性があります。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-name">
+          <h2>ソフトバンクグループ</h2>
+          <span class="code">9984</span>
+          <span class="tag plus" style="display:block; margin-top:8px;">POSITIVE</span>
+        </div>
+        <div class="card-move">
+          <div class="value up">▲ 指数寄与度1位</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p><span class="label">材料</span>日経平均の押し上げ寄与度トップ。リクルートHD、SCREENホールディングス、荏原製作所、東京海上HDも上位に入った。前週末の米ハイテク株高を受けた朝方の買いの流れに乗った。個別の適時開示内容は確認できず。</p>
+        <p><span class="label">値動き</span>指数寄与度上位（円建ての詳細な前日比は確認できず）。</p>
+        <div class="watch-line">📊 チャートの見方：寄与度上位に保険・銀行株（東京海上HDなど）が並ぶ日は、金利の先高観を材料に金融株が選好されていることを示唆します。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-name">
+          <h2>イビデン</h2>
+          <span class="code">4062</span>
+          <span class="tag minus" style="display:block; margin-top:8px;">CAUTION</span>
+        </div>
+        <div class="card-move">
+          <div class="value down">▼ 指数寄与度下位1位</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p><span class="label">材料</span>日経平均の押し下げ寄与度トップ。アドバンテスト、ファーストリテイリング、キオクシアHD、中外製薬も下位に入った。朝方は前週末の米半導体株高を受けて買いが先行したが、買い一巡後に利益確定売りが優勢となったほか、半導体株の比重が高い韓国総合株価指数（KOSPI）の下落や、金利先高観による株式の相対的な割高感の警戒も重荷となった。</p>
+        <p><span class="label">値動き</span>指数寄与度下位（円建ての詳細な前日比は確認できず）。</p>
+        <div class="watch-line">📊 チャートの見方：朝高後に失速する値動きは、好材料への反応が一巡した後、金利動向など別の懸念材料が優勢になったことを示唆します。</div>
+      </div>
+    </div>
+
+  </div>
+
+  <section class="edu">
+    <h3>今日の用語メモ：総合利回り（配当利回り＋優待利回り）</h3>
+    <p><strong>総合利回り</strong>とは、株式投資から得られるリターンを、配当金と株主優待の両方を合わせて計算した利回りのことです。配当利回り（1株当たり配当÷株価）だけでなく、優待品の金銭的価値を投資額で割った優待利回りも加算します。本日のOrchestra Holdingsのように、優待利回りが高い銘柄は、権利確定日が近づくにつれて個人投資家の関心が高まりやすく、増配や優待拡充のニュースが出ると株価が大きく反応することがあります。ただし、優待品の価値は人によって感じ方が異なるため、あくまで参考指標の一つとして捉える必要があります。</p>
+  </section>
+
+  <footer>
+    <p>本記事の情報は投資勧誘ではありません。教育・参考目的のみで提供しています。個別銘柄の売買を推奨するものではなく、投資判断はご自身の責任で行ってください。掲載データは本日の東証大引け時点の情報です。</p>
+  </footer>
+
+</div>
+</body>
+</html>
